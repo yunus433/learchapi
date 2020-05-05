@@ -22,6 +22,10 @@ const UserSchema = new Schema({
     type: String,
     default: ""
   },
+  birth_time: {
+    type: Object,
+    default: {}
+  },
   school: {
     type: String, 
     default: ""

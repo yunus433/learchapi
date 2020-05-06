@@ -1,7 +1,5 @@
 const express = require('express');
-const multer = require('multer');
 
-const upload = multer({ dest: './public/res/uploads/' });
 const router = express.Router();
 
 const isAPIAuthenticated = require('../middleware/isAPIAuthenticated');
@@ -22,7 +20,6 @@ router.post(
 );
 router.post(
   '/details',
-  upload.single('photo'),
   isAPIAuthenticated,
   detailsPostController
 );

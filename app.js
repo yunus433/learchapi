@@ -21,6 +21,7 @@ const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/learchapi
 
 const indexRouteController = require('./routes/indexRoute');
 const authRouteController = require('./routes/authRoute');
+const profileRouteController = require('./routes/profileRoute');
 
 const {
   SESSION_SECRET,
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouteController);
 app.use('/auth', authRouteController);
+app.use('/profile', profileRouteController);
 
 io.on('connection', (socket) => {
   sockets(socket, io);

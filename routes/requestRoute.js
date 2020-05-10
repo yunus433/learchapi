@@ -4,20 +4,20 @@ const router = express.Router();
 
 const isAPIAuthenticated = require('../middleware/isAPIAuthenticated');
 
-const indexGetController = require('../controllers/user/get');
+const newGetController = require('../controllers/request/get');
 
-const indexPostController = require('../controllers/user/post');
+const newPostController = require('../controllers/request/post');
 
 router.get(
   '/',
   isAPIAuthenticated,
-  indexGetController
+  newGetController
 );
 
 router.post(
   '/',
   isAPIAuthenticated,
-  indexPostController
+  newPostController
 );
 
 module.exports = router;

@@ -14,6 +14,7 @@ module.exports = (user) => {
     not_read_message_number: user.not_read_message_number,
     birth_day: user.birth_time.day + "." + user.birth_time.month + "." + user.birth_time.year,
     completed: user.completed,
-    profile_photo: user.profile_photo
+    profile_photo: user.profile_photo,
+    languages: user.languages
   }
 };

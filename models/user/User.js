@@ -26,6 +26,10 @@ const UserSchema = new Schema({
     type: Object,
     default: {}
   },
+  languages: {
+    type: Array,
+    default: []
+  },
   school: {
     type: String, 
     default: ""
@@ -43,6 +47,18 @@ const UserSchema = new Schema({
     default: 0
   },
   chat_list: {
+    type: Array,
+    default: []
+  },
+  requests: {
+    type: Array,
+    default: []
+  },
+  requested_users: {
+    type: Array,
+    default: []
+  },
+  old_users: {
     type: Array,
     default: []
   }

@@ -8,20 +8,23 @@ const expressSession = require('express-session');
 const socketIO = require('socket.io');
 const cloudinary = require('cloudinary');
 
-const sockets = require('./sockets/sockets');
+// const sockets = require('./sockets/sockets');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+// const io = socketIO(server);
 
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/learchapi";
 
-const indexRouteController = require('./routes/indexRoute');
+// const indexRouteController = require('./routes/indexRoute');
 const authRouteController = require('./routes/authRoute');
 const profileRouteController = require('./routes/profileRoute');
+const userRouteController = require('./routes/userRoute');
+const requestRouteController = require('./routes/requestRoute')
+const chatRouteController = require('./routes/chatRoute');
 
 const {
   SESSION_SECRET,
@@ -62,18 +65,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  req.io = io;
+  // req.io = io;
   req.cloudinary = cloudinary;
   next();
 });
 
-app.use('/', indexRouteController);
+// app.use('/', indexRouteController);
 app.use('/auth', authRouteController);
 app.use('/profile', profileRouteController);
+app.use('/user', userRouteController);
+app.use('/request', requestRouteController);
+app.use('/chat', chatRouteController);
 
-io.on('connection', (socket) => {
-  sockets(socket, io);
-});
+// io.on('connection', (socket) => {
+//   sockets(socket, io);
+// });
 
 server.listen(PORT, () => {
   console.log(`Server is on port ${PORT}`);

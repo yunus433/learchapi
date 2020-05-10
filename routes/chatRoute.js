@@ -4,9 +4,9 @@ const router = express.Router();
 
 const isAPIAuthenticated = require('../middleware/isAPIAuthenticated');
 
-const indexGetController = require('../controllers/user/get');
+const indexGetController = require('../controllers/chat/get');
 
-const indexPostController = require('../controllers/user/post');
+const indexPostController = require('../controllers/chat/post');
 
 router.get(
   '/',

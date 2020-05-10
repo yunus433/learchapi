@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
     name: req.body.name,
     school: req.body.school,
     birth_time: req.body.birth_time,
+    languages: req.body.languages,
     completed: true
   }}, {new: true}, (err, user) => {
     if (err || !user) return res.status(500).json({ error: "mongo error: " + err });

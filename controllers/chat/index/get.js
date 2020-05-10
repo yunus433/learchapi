@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const async = require('async');
 
-const User = require('../../models/user/User');
-const Chat = require('../../models/chat/Chat');
+const User = require('../../../models/user/User');
+const Chat = require('../../../models/chat/Chat');
 
 module.exports = (req, res) => {
   if (!req.query || !req.query.id)

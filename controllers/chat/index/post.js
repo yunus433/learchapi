@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const User = require('../../models/user/User');
-const Chat = require('../../models/chat/Chat');
+const User = require('../../../models/user/User');
+const Chat = require('../../../models/chat/Chat');
 
 module.exports = (req, res) => {
   if (!req.body || !req.body.id || !req.body.user || !req.body.chat_id)

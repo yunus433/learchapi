@@ -8,11 +8,11 @@ const expressSession = require('express-session');
 const socketIO = require('socket.io');
 const cloudinary = require('cloudinary');
 
-// const sockets = require('./sockets/sockets');
+const sockets = require('./sockets/sockets');
 
 const app = express();
 const server = http.createServer(app);
-// const io = socketIO(server);
+const io = socketIO(server);
 
 dotenv.config({ path: path.join(__dirname, ".env") });
 
@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  // req.io = io;
+  req.io = io;
   req.cloudinary = cloudinary;
   next();
 });
@@ -77,9 +77,9 @@ app.use('/user', userRouteController);
 app.use('/request', requestRouteController);
 app.use('/chat', chatRouteController);
 
-// io.on('connection', (socket) => {
-//   sockets(socket, io);
-// });
+io.on('connection', (socket) => {
+  sockets(socket, io);
+});
 
 server.listen(PORT, () => {
   console.log(`Server is on port ${PORT}`);

@@ -20,6 +20,7 @@ module.exports = (req, res) => {
             chat.user_two = chat.user_one;
             chat.user_one = temp;
           }
+
           next(err, chat)
         });
       },

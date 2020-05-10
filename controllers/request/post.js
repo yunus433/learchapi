@@ -16,7 +16,7 @@ module.exports = (req, res) => {
       return res.status(500).json({ error: 'already requested user' });
 
     if (user.requests.includes(req.body.user.toString())) {
-      User.findById(mongoose.Types.ObjectId(req.body.id.toString()), (err, user_two) => {
+      User.findById(mongoose.Types.ObjectId(req.body.user.toString()), (err, user_two) => {
         if (err) return res.status(500).json({ error: 'mongo error: ' + err });
 
         const newChatData = {

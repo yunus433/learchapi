@@ -10,7 +10,7 @@ const profilephotoPostController = require('../controllers/profile/profilephoto/
 
 router.post(
   '/profilephoto',
-  upload.single('file'),
+  upload.single('photo'),
   isAPIAuthenticated,
   profilephotoPostController
 );

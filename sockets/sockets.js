@@ -14,7 +14,8 @@ module.exports = (socket, io) => {
       content: params.message.content,
       sended_by: params.message.sended_by,
       read: false,
-      createdAt: moment(Date.now()).tz("Europe/Istanbul").format("HH[:]mm A [/] DD[.]MM[.]YYYY")
+      time: moment(Date.now()).tz("Europe/Istanbul").format("HH[:]mm"),
+      day: moment(Date.now()).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY")
     };
 
     if (io.sockets.clients().adapter.rooms[params.to].length > 1) {
